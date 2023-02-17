@@ -42,7 +42,7 @@ export class PetsRepository implements Repository<Pet> {
     }
     async update(payload: Partial<Pet>): Promise<Pet> {
         if (!payload.id) return Promise.reject(invalidIdError);
-        const resp = await fetch(this.url + payload.id + firebaseCORS, {
+        const resp = await fetch(this.url + '/' + payload.id + '.json', {
             method: 'PATCH',
             body: JSON.stringify(payload),
             headers: {
@@ -55,7 +55,7 @@ export class PetsRepository implements Repository<Pet> {
     }
     async delete(id: Pet['id']): Promise<Pet['id']> {
         if (!id) return Promise.reject(invalidIdError);
-        const resp = await fetch(this.url + id + firebaseCORS, {
+        const resp = await fetch(this.url + '/' + id + '.json', {
             method: 'DELETE',
         });
         if (!resp.ok)
