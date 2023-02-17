@@ -8,7 +8,7 @@ export async function saveImageInStorage(
     fileName: string
 ) {
     try {
-        const storageRef = ref(storage, storagePath + fileName);
+        const storageRef = await ref(storage, storagePath + fileName);
         console.log(storageRef);
         const upload = await uploadBytesResumable(storageRef, file);
         console.log(upload);
@@ -23,7 +23,7 @@ export async function getUrlsFromStorage(
     fileName: string
 ) {
     try {
-        const storageRef = ref(storage, storagePath + fileName);
+        const storageRef = await ref(storage, storagePath + fileName);
         return getDownloadURL(storageRef);
     } catch (error) {
         handleError(error as Error);

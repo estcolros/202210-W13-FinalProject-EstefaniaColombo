@@ -63,7 +63,7 @@ describe('Given getUrlsFromStorage function', () => {
             expect(ref).toHaveBeenCalled();
             expect(getDownloadURL).toHaveBeenCalled();
 
-            expect(result).toEqual('url');
+            await expect(result).toEqual('url');
         });
     });
     describe('Given a not valid ref', () => {
@@ -74,7 +74,7 @@ describe('Given getUrlsFromStorage function', () => {
         test('Then "getUrlsFromStorage" should throw error when rejected', async () => {
             await getUrlsFromStorage(mockStoragePath, mockFileName);
 
-            expect(spyConsole).toHaveBeenCalled();
+            await expect(spyConsole).toHaveBeenCalled();
         });
     });
 });
