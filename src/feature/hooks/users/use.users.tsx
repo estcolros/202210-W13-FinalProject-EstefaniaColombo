@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useReducer, useState } from 'react';
 import { UserCredential } from 'firebase/auth';
 import { ref, set } from '@firebase/database';
