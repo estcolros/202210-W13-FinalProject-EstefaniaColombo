@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PetContext } from '../../../core/context/pets.context';
