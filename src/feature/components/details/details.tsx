@@ -87,7 +87,8 @@ export function Details({
     };
     return (
         <>
-            <h2>Pet details</h2>
+            <h3>Get to know your future pet better</h3>
+
             <section className="cards_details_admin">
                 {getAdmin() ? (
                     <form
