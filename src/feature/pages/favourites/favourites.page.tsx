@@ -14,26 +14,22 @@ export default function FavouritesPage() {
         <>
             <h2>My favorites pets</h2>
             {!pets.length ? (
-                <div>
-                    <p>Loading ....</p>
-                    {/* <h4>Actualmente no tienes mascotas favoritas</h4>
-                    <img
-                        src={require('./fav.png')}
-                        alt="error"
-                        width="550"
-                        height="550"
-                    /> */}
-                </div>
+                <p>Loading ....</p>
             ) : (
-                <div>
-                    <ul className="pets-list">
-                        {pets
-                            .filter((item) => item.isFavourite)
-                            .map((item) => {
-                                return <Item key={item.id} item={item}></Item>;
-                            })}
-                    </ul>
-                </div>
+                // {/* <h4>Actualmente no tienes mascotas favoritas</h4>
+                // <img
+                //     src={require('./fav.png')}
+                //     alt="error"
+                //     width="550"
+                //     height="550"
+                // /> */}
+                <ul className="pets-list">
+                    {pets
+                        .filter((item) => item.isFavourite)
+                        .map((item) => {
+                            return <Item key={item.id} item={item}></Item>;
+                        })}
+                </ul>
             )}
         </>
     );

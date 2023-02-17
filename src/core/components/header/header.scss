@@ -1,6 +1,6 @@
-$bg-color: linear-gradient(90deg, #ffffff, #ffffff);
 @import '../../../scss/variables.scss';
 @import '../../../scss/mixins.scss';
+$bg-color: linear-gradient(90deg, #ffffff, #ffffff);
 
 header {
     background: $bg-color;

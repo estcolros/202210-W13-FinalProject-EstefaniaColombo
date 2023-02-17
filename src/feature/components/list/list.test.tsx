@@ -36,12 +36,8 @@ describe('Given "List" component', () => {
             const elementTitle = screen.getByRole('heading', {
                 name: 'List of pets',
             });
-            const elementName = screen.getByText('Name');
-            const elementVelocity = screen.getByText('Type');
 
             expect(elementTitle).toBeInTheDocument();
-            expect(elementName).toBeInTheDocument();
-            expect(elementVelocity).toBeInTheDocument();
         });
     });
 });

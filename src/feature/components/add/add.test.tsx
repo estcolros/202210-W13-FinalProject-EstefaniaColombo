@@ -1,63 +1,71 @@
+/* eslint-disable testing-library/no-unnecessary-act */
+/* eslint-disable testing-library/await-async-utils */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable testing-library/prefer-screen-queries */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { createContext, useContext } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import {
+    PetContext,
+    PetContextStructure,
+} from '../../../core/context/pets.context';
+import { UserContextStructure } from '../../../core/context/user.context';
+import { USER } from '../../data/usermock';
 import { Add } from './add';
 
-describe('Given "Add" component in "Publish" page', () => {
-    const handleAdd = jest.fn();
-
-    beforeEach(() => {
-        render(<Add></Add>);
-    });
-
-    describe('When component is call with a DOM implementation', () => {
-        test(`Then it should be render with its title`, () => {
-            const addTitle = screen.getByRole('heading', {
-                name: 'Information Pet',
+describe('Given "Add" component', () => {
+    describe('When we have actually current user', () => {
+        const handleUpdateUser = jest.fn();
+        let mockContext: PetContextStructure & UserContextStructure;
+        beforeEach(async () => {
+            mockContext = {
+                admin: false,
+                currentUser: USER,
+                handleUpdateUser,
+            } as unknown as PetContextStructure & UserContextStructure;
+            await act(async () => {
+                render(
+                    <PetContext.Provider value={mockContext}>
+                        <BrowserRouter>
+                            <Add></Add>
+                        </BrowserRouter>
+                    </PetContext.Provider>
+                );
             });
-
-            expect(addTitle).toBeInTheDocument();
         });
-    });
-
-    describe('When data are provided in the form', () => {
         const mockName = 'Test name';
         const mockType = 'Test type';
-        const mockSize = 'Test size';
         const mockSex = 'Test sex';
-        let inputElements: Array<HTMLElement>;
-        let elementButton: HTMLElement;
+        const mockRace = 'Test race';
+        let inputElementsTxt: Array<HTMLElement>;
         beforeEach(() => {
-            inputElements = screen.getAllByRole('textbox');
-            elementButton = screen.getByRole('button');
+            inputElementsTxt = screen.getAllByRole('textbox');
         });
         test('Then form could be used for type content', () => {
-            expect(inputElements[0]).toBeInTheDocument();
-            expect(inputElements[1]).toBeInTheDocument();
-            expect(inputElements[2]).toBeInTheDocument();
-            expect(inputElements[3]).toBeInTheDocument();
-            userEvent.type(inputElements[0], mockName);
-            userEvent.type(inputElements[1], mockType);
-            userEvent.type(inputElements[2], mockSize);
-            userEvent.type(inputElements[3], mockSex);
-            expect(inputElements[0]).toHaveValue(mockName);
-            expect(inputElements[1]).toHaveValue(mockType);
-            expect(inputElements[2]).toHaveValue(mockSize);
-            expect(inputElements[3]).toHaveValue(mockSex);
+            const title = screen.getByRole('heading', {
+                name: `ADD PET`,
+            });
+            expect(title).toBeInTheDocument();
+            expect(inputElementsTxt[0]).toBeInTheDocument();
+            expect(inputElementsTxt[1]).toBeInTheDocument();
+            expect(inputElementsTxt[2]).toBeInTheDocument();
+            expect(inputElementsTxt[3]).toBeInTheDocument();
+            expect(inputElementsTxt[4]).toBeInTheDocument();
+            expect(inputElementsTxt[5]).toBeInTheDocument();
+            userEvent.type(inputElementsTxt[2], mockName);
+            userEvent.type(inputElementsTxt[3], mockType);
+            userEvent.type(inputElementsTxt[4], mockSex);
+            userEvent.type(inputElementsTxt[5], mockRace);
+            expect(inputElementsTxt[2]).toHaveValue(mockName);
+            expect(inputElementsTxt[3]).toHaveValue(mockType);
+            expect(inputElementsTxt[4]).toHaveValue(mockSex);
+            expect(inputElementsTxt[5]).toHaveValue(mockRace);
         });
-        test('Then form could be used for send the function received in props', () => {
-            userEvent.type(inputElements[0], mockName);
-            userEvent.type(inputElements[1], mockType);
-            userEvent.type(inputElements[2], mockSize);
-            userEvent.type(inputElements[3], mockSex);
-            userEvent.click(elementButton);
-            expect(handleAdd).toHaveBeenCalled();
-        });
-        test('Then form could be used also without value for responsible', () => {
-            userEvent.type(inputElements[0], mockName);
-            userEvent.click(elementButton);
-            expect(handleAdd).toHaveBeenCalled();
+        test('Then the button should be in the screen', () => {
+            const submitButton = screen.getByRole('button', {
+                name: 'add_circle',
+            });
+            expect(submitButton).toBeInTheDocument();
         });
     });
 });

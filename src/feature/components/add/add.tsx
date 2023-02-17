@@ -35,9 +35,7 @@ export function Add() {
 
     const handleSubmit = async (ev: SyntheticEvent) => {
         ev.preventDefault();
-        console.log('subiendo......');
         handleAdd(formData);
-        console.log('ADDED PET!!!!');
         setFormData(initialFormData);
         setuploadedImagerUrl('');
     };
@@ -58,121 +56,114 @@ export function Add() {
                 ...formData,
                 foto: url as string,
             });
-            console.log(url);
         } catch (error) {
             console.log(error);
         }
     };
 
     return (
-        <>
-            <h2>Add Pet</h2>
-            <div className="add-pets">
-                <form className="add-pets__form" onSubmit={handleSubmit}>
-                    <h2>Information Pet</h2>
+        <section>
+            <h3>ADD PET </h3>
 
-                    <div>
-                        <label htmlFor="foto">Imagen</label>
+            <form className="add-pets__form" onSubmit={handleSubmit}>
+                <h2>Information Pet</h2>
 
-                        <input
-                            id="url"
-                            name="url"
-                            type="file"
-                            onChange={handleUploadImage}
-                            required
-                        />
-                        {/* {uploadedImagerUrl && (
-                        <img src={uploadedImagerUrl} alt="admin" />
-                    )} */}
-                    </div>
+                <div>
+                    <label htmlFor="foto">Imagen</label>
+                    <input
+                        id="url"
+                        name="url"
+                        type="file"
+                        onChange={handleUploadImage}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="title">Name</label>
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder="Write a name"
+                        value={formData.title}
+                        onInput={handleInput}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="especie">Type</label>
+                    <input
+                        type="text"
+                        name="especie"
+                        id="especie"
+                        placeholder="Write a type"
+                        value={formData.especie}
+                        onInput={handleInput}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="sexo">Sex</label>
+                    <input
+                        type="text"
+                        name="sexo"
+                        id="sexo"
+                        placeholder="Write a sex"
+                        value={formData.sexo}
+                        onInput={handleInput}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="raza">Race</label>
+                    <input
+                        type="text"
+                        name="raza"
+                        id="raza"
+                        placeholder="Write a race"
+                        value={formData?.raza}
+                        onInput={handleInput}
+                        required
+                    />
+                </div>
+                <div>
+                    <label htmlFor="tamagno">Size</label>
+                    <input
+                        type="text"
+                        name="tamagno"
+                        id="tamagno"
+                        placeholder="Write a size"
+                        value={formData.tamagno}
+                        onInput={handleInput}
+                    />
+                </div>
 
-                    <div>
-                        <label htmlFor="title">Name</label>
-                        <input
-                            type="text"
-                            name="title"
-                            id="title"
-                            placeholder="Write a name"
-                            value={formData.title}
-                            onInput={handleInput}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="especie">Type</label>
-                        <input
-                            type="text"
-                            name="especie"
-                            id="especie"
-                            placeholder="Write a type"
-                            value={formData.especie}
-                            onInput={handleInput}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="sexo">Sex</label>
-                        <input
-                            type="text"
-                            name="sexo"
-                            id="sexo"
-                            placeholder="Write a sex"
-                            value={formData.sexo}
-                            onInput={handleInput}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="raza">Race</label>
-                        <input
-                            type="text"
-                            name="raza"
-                            id="raza"
-                            placeholder="Write a race"
-                            value={formData?.raza}
-                            onInput={handleInput}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="tamagno">Size</label>
-                        <input
-                            type="text"
-                            name="tamagno"
-                            id="tamagno"
-                            placeholder="Write a size"
-                            value={formData.tamagno}
-                            onInput={handleInput}
-                        />
-                    </div>
+                <div>
+                    <label htmlFor="fechaNacimiento">Birth</label>
+                    <input
+                        type="text"
+                        name="fechaNacimiento"
+                        id="fechaNacimiento"
+                        placeholder="Write a birth"
+                        value={formData.fechaNacimiento}
+                        onInput={handleInput}
+                    />
+                </div>
 
-                    <div>
-                        <label htmlFor="fechaNacimiento">Birth</label>
-                        <input
-                            type="text"
-                            name="fechaNacimiento"
-                            id="fechaNacimiento"
-                            placeholder="Write a birth"
-                            value={formData.fechaNacimiento}
-                            onInput={handleInput}
-                        />
-                    </div>
+                <button className="btn_add_pet" type="submit">
+                    <span className="material-symbols-outlined">
+                        add_circle
+                    </span>
+                </button>
 
-                    <button className="btn_add_pet" type="submit">
+                <Link to={`/adopt/`}>
+                    <button className="buttons-item_details" type="submit">
                         <span className="material-symbols-outlined">
-                            add_circle
+                            arrow_back
                         </span>
                     </button>
-
-                    <Link to={`/adopt/`}>
-                        <button className="buttons-item_details" type="submit">
-                            <span className="material-symbols-outlined">
-                                arrow_back
-                            </span>
-                        </button>
-                    </Link>
-                </form>
-            </div>
-        </>
+                </Link>
+            </form>
+        </section>
     );
 }

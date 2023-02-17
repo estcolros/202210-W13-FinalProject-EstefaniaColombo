@@ -5,13 +5,13 @@ import { UserContextProvider } from './user.provider';
 describe('Given PlaceContextProvider', () => {
     describe('When we use it', () => {
         test('Then it should call the custom hook usePlaces', () => {
-            const spyuseArtworks = jest.spyOn(useUsers, 'useUsers');
+            const spyusePets = jest.spyOn(useUsers, 'useUsers');
             render(
                 <UserContextProvider>
                     <></>
                 </UserContextProvider>
             );
-            expect(spyuseArtworks).toHaveBeenCalled();
+            expect(spyusePets).toHaveBeenCalled();
         });
     });
 });
