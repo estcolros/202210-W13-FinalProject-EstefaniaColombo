@@ -16,7 +16,7 @@ export default function FavouritesPage() {
             {!pets.length ? (
                 <p>Loading ....</p>
             ) : (
-                <ul className="pets-list">
+                <ul className="pet-list">
                     {pets
                         .filter((item) => item.isFavourite)
                         .map((item) => {
