@@ -1,0 +1,9 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+
+.cards {
+    @include flexbox(flex, center, center);
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}

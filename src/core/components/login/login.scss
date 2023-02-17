@@ -1,0 +1,57 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+
+.login {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+}
+
+.form_login {
+    margin-top: 1rem;
+    align-items: center;
+}
+.btn_google {
+    font-size: 1rem;
+    margin: 1rem;
+    margin-top: 1.5rem;
+    padding: 0.4rem;
+    background-color: #06a36a;
+    border-style: outset;
+    color: beige;
+    border: none;
+    border-radius: 0.8rem;
+    width: 160px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5rem;
+
+    &:hover {
+        background-color: rgb(255, 213, 0);
+        color: black;
+    }
+}
+
+.btn_admin {
+    font-size: 1rem;
+    margin: 1rem;
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+    padding: 0.4rem;
+    background-color: #06a36a;
+    border-style: outset;
+    color: beige;
+    border: none;
+    border-radius: 0.8rem;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+        background-color: rgb(255, 213, 0);
+        color: black;
+    }
+}

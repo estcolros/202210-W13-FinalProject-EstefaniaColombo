@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './index.scss';
+import App from './core/components/app/App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { PetContextProvider } from './core/context/pets.provider';
+import { UserContextProvider } from './core/context/user.provider';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <App />
+        <UserContextProvider>
+            <PetContextProvider>
+                <Router>
+                    <App></App>
+                </Router>
+            </PetContextProvider>
+        </UserContextProvider>
     </React.StrictMode>
 );
 
