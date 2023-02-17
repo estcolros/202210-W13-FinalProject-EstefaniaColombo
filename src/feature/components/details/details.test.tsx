@@ -51,7 +51,7 @@ describe('Given "Detail" component', () => {
                 </BrowserRouter>
             );
             const heading = screen.getByRole('heading', {
-                name: /Pet details/i,
+                name: /Get to know your future pet better/i,
             });
 
             expect(heading).toBeInTheDocument();
