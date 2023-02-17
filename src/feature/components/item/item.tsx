@@ -8,15 +8,13 @@ import './item.scss';
 export function Item({ item }: { item: Pet }) {
     const { handleLoad, handleDelete, handleFavourite } =
         useContext(PetContext);
-    const { currentUser, users, getAdmin } = useContext(UserContext);
+    const { getAdmin } = useContext(UserContext);
 
     function handleClickFavourite() {
-        console.log('Favorito item');
         handleFavourite(item);
     }
 
     function handleClickDelete() {
-        console.log('Eliminar item');
         handleDelete(item.id);
     }
     useEffect(() => {

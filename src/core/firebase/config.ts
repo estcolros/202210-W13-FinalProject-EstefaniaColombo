@@ -33,6 +33,5 @@ export const loginWithGoogle = async () => {
 };
 
 export const login = async (email: string, password: string) => {
-    //state.user.token = await userCredentials.user.getIdToken()
     return await signInWithEmailAndPassword(auth, email, password);
 };

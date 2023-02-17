@@ -16,9 +16,8 @@ export function Details({
     item: Pet;
     handleUpdate: (pet: Pet) => Promise<void>;
 }) {
-    const { handleLoad, handleDelete, handleFavourite } =
-        useContext(PetContext);
-    const { currentUser, users, getAdmin } = useContext(UserContext);
+    const { handleFavourite } = useContext(PetContext);
+    const { getAdmin } = useContext(UserContext);
 
     const initialFormData: Partial<Pet> = {
         id: item?.id,
@@ -40,14 +39,12 @@ export function Details({
     };
 
     const handleSubmit = (ev: SyntheticEvent) => {
-        console.log('SAVED PET!!!!');
         ev.preventDefault();
         handleUpdate(formData as Pet);
         setFormData(initialFormData);
     };
 
     function handleClickFavourite() {
-        console.log('Favorito item');
         handleFavourite(item);
     }
 
@@ -83,7 +80,6 @@ export function Details({
                 ...formData,
                 foto: url as string,
             });
-            console.log(url);
         } catch (error) {
             console.log(error);
         }

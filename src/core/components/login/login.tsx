@@ -24,7 +24,6 @@ export function Login() {
     const handleSubmit = async (ev: SyntheticEvent) => {
         ev.preventDefault();
         const userCredentials = await login(formData.email, formData.password);
-        console.log('HOLA MUNDO ADMIN', userCredentials);
         handleAdmin(userCredentials.user.uid);
         navigate('/adopt');
     };
@@ -32,7 +31,6 @@ export function Login() {
     const handleLogin = async (ev: SyntheticEvent) => {
         ev.preventDefault();
         const userCredentials = await loginWithGoogle();
-        console.log('HOLA MUNDO GOOGLE!!', userCredentials);
         handleUser(userCredentials);
         navigate('/home');
     };

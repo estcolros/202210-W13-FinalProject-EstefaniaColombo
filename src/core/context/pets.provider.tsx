@@ -10,7 +10,6 @@ export function PetContextProvider({ children }: { children: JSX.Element }) {
         handleDelete,
         handleUpdate,
         handleFavourite,
-        handleFile,
     } = usePets();
     //console.log('Loading PetContextProvider with pets: ', getPets);
 
@@ -22,7 +21,6 @@ export function PetContextProvider({ children }: { children: JSX.Element }) {
             handleDelete,
             handleUpdate,
             handleFavourite,
-            handleFile,
         }),
         [
             getPets,
@@ -31,7 +29,6 @@ export function PetContextProvider({ children }: { children: JSX.Element }) {
             handleDelete,
             handleUpdate,
             handleFavourite,
-            handleFile,
         ]
     );
 

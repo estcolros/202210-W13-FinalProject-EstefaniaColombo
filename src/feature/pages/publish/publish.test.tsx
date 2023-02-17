@@ -48,7 +48,7 @@ describe('Given PublishPage component', () => {
             const div = screen.getByRole('article');
             expect(div).toBeInTheDocument();
         });
-        test('Then the component ArtistContact should be rendered', () => {
+        test('Then the component Pets should be rendered', () => {
             const title = screen.getByRole('heading', {
                 name: `You don't have permission to publish any pets`,
             });
