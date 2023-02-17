@@ -7,7 +7,8 @@ function App() {
     const items: MenuItemsType = [
         { path: '/home', label: 'Home' },
         { path: '/adopt', label: 'Adopt' },
-        { path: '/favourites', label: 'Favourites' },
+        { path: '/favorites', label: 'Favorites' },
+        { path: '/publish', label: 'Publish' },
     ];
 
     return (

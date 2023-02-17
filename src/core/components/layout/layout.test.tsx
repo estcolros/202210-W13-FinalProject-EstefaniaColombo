@@ -15,7 +15,7 @@ describe('Given Footer component', () => {
                     </Router>
                 </>
             );
-            const element = screen.getByText(/Adoption/i);
+            const element = screen.getByText(/Adopt a Pet Today/i);
             expect(element).toBeInTheDocument();
         });
     });

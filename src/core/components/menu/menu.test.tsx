@@ -17,7 +17,7 @@ describe('Given Menu component', () => {
                 name: 'Adopt',
             });
             const link3 = screen.getByRole('link', {
-                name: 'Favourites',
+                name: 'Favorites',
             });
             expect(link1).toBeInTheDocument();
             expect(link2).toBeInTheDocument();

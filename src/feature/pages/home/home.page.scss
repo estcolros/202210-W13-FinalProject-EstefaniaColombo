@@ -1,0 +1,32 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+
+.discover {
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 0.6rem;
+    background-color: #06a36a;
+    border-style: outset;
+    color: beige;
+    border: none;
+    border-radius: 0.8rem;
+    width: 160px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    align &:hover {
+        background-color: rgb(255, 213, 0);
+        color: black;
+    }
+}
+
+.numPets {
+    color: #06a36a;
+    font-size: 2rem;
+}
+
+.adopt_pet {
+    border-radius: 0.8rem;
+    width: 870px;
+    margin-top: 1rem;
+}

@@ -1,0 +1,13 @@
+$bg-color: linear-gradient(90deg, #d7f8bc, #06a36a);
+$text-color: #0d0d0d;
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+
+footer {
+    background: $bg-color;
+    color: $text-color;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}

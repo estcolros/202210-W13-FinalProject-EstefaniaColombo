@@ -1,20 +1,48 @@
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PetContext } from '../../../core/context/pets.context';
+import './home.page.scss';
 
 export default function HomePage() {
-    // const pets = JSON.parse(sessionStorage.getItem('pets') as string);
+    const { pets, handleLoad } = useContext(PetContext);
+
+    useEffect(() => {
+        handleLoad();
+    }, [handleLoad]);
+
     return (
         <>
             <h2>Every Pet Deserves a Loving Home. Adopt a Pet Today</h2>
+
             <p>
                 Browse our available animals and learn more about the adoption
                 process. Together, we can rescue, rehabilitate, and rehome pets
-                in need. Thank you for supporting our mission to bring joy to
-                families through pet adoption.
+                in need.
             </p>
-            {/* <p>THERE ARE CURRENTLY {pets ? pets : 0} HOMELESS ANIMALS</p> */}
-            {/* <p>{pets ? <img src={srcImage} alt="" /> : ''}</p> */}
+
+            <p>
+                Thank you for supporting our mission to bring joy to families
+                through pet adoption.
+            </p>
+
+            <div>
+                <img
+                    className="adopt_pet"
+                    src={require('./hompage.png')}
+                    alt="error"
+                    width="950"
+                    height="500"
+                />
+            </div>
+
+            <p>
+                THERE ARE CURRENTLY
+                <span className="numPets"> {pets.length} </span> HOMELESS
+                ANIMALS
+            </p>
+
             <Link to={'/adopt'}>
-                <button className="btn">Discover the pets</button>
+                <button className="discover">Discover the pets</button>
             </Link>
         </>
     );

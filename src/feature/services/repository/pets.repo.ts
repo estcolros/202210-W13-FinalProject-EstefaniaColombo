@@ -1,15 +1,15 @@
 import { Repository } from '../../../core/services/repository/repo';
-import { PetsType } from '../../models/pet.model';
+import { Pet } from '../../models/pet.model';
 
 const invalidIdError = new Error('Invalid ID');
 const firebaseCORS = '.json';
 
-export class PetsRepository implements Repository<PetsType> {
+export class PetsRepository implements Repository<Pet> {
     constructor(
         private url = 'https://petadopt-6a034-default-rtdb.europe-west1.firebasedatabase.app/pets'
     ) {}
 
-    async load(): Promise<PetsType[]> {
+    async load(): Promise<Pet[]> {
         const resp = await fetch(this.url + firebaseCORS);
         if (!resp.ok)
             throw new Error(`Error ${resp.status}: ${resp.statusText}`);
@@ -19,7 +19,7 @@ export class PetsRepository implements Repository<PetsType> {
             id: key,
         }));
     }
-    async queryId(id: string): Promise<PetsType> {
+    async queryId(id: string): Promise<Pet> {
         if (!id || typeof id !== 'string')
             return Promise.reject(invalidIdError);
         const resp = await fetch(this.url + id);
@@ -28,7 +28,7 @@ export class PetsRepository implements Repository<PetsType> {
         return await resp.json();
     }
 
-    async create(payload: Partial<PetsType>): Promise<PetsType> {
+    async create(payload: Partial<Pet>): Promise<Pet> {
         const resp = await fetch(this.url + firebaseCORS, {
             method: 'POST',
             body: JSON.stringify(payload),
@@ -40,7 +40,7 @@ export class PetsRepository implements Repository<PetsType> {
             throw new Error(`Error ${resp.status}: ${resp.statusText}`);
         return await resp.json();
     }
-    async update(payload: Partial<PetsType>): Promise<PetsType> {
+    async update(payload: Partial<Pet>): Promise<Pet> {
         if (!payload.id) return Promise.reject(invalidIdError);
         const resp = await fetch(this.url + '/' + payload.id + '.json', {
             method: 'PATCH',
@@ -53,7 +53,7 @@ export class PetsRepository implements Repository<PetsType> {
             throw new Error(`Error ${resp.status}: ${resp.statusText}`);
         return await resp.json();
     }
-    async delete(id: PetsType['id']): Promise<PetsType['id']> {
+    async delete(id: Pet['id']): Promise<Pet['id']> {
         if (!id) return Promise.reject(invalidIdError);
         const resp = await fetch(this.url + '/' + id + '.json', {
             method: 'DELETE',

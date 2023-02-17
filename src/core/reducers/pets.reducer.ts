@@ -1,6 +1,6 @@
 import { Pet } from '../../feature/models/pet.model';
-import { petsAction } from './action.creators';
-import { petsActionTypes } from './action.types';
+import { petsAction } from './pets.action.creators';
+import { petsActionTypes } from './pets.action.types';
 
 export function petsReducer(state: Array<Pet>, action: petsAction): Array<Pet> {
     switch (action.type) {

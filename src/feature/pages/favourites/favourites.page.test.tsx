@@ -12,7 +12,7 @@ describe('When render DetailsPage Page', () => {
             </BrowserRouter>
         );
         const headingElement = screen.getByRole('heading', {
-            name: /My favourites pets/i,
+            name: /My favorites pets/i,
         });
         expect(headingElement).toBeInTheDocument();
     });

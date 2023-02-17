@@ -1,0 +1,33 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/mixins.scss';
+.menu {
+    display: flex;
+    justify-content: flex-end;
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-inline: 0.5rem;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            padding-inline-end: 1rem;
+            padding-block: 1rem;
+            -webkit-transition: font-size 1s ease;
+            transition: font-size 1s ease;
+            &:hover {
+                font-size: 18px;
+                font-weight: bold;
+                color: $secondary-dark-color;
+            }
+        }
+    }
+}

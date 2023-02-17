@@ -1,5 +1,5 @@
 import { Pet } from '../../feature/models/pet.model';
-import { petsActionTypes } from './action.types';
+import { petsActionTypes } from './pets.action.types';
 
 export type petsAction = {
     type: string;

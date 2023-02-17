@@ -1,23 +1,25 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { createContext } from 'react';
-import { PetsType } from '../../feature/models/pet.model';
+import { createContext, SyntheticEvent } from 'react';
+import { Pet } from '../../feature/models/pet.model';
 
 export type PetContextStructure = {
-    pets: Array<PetsType>;
+    pets: Array<Pet>;
     handleLoad: () => Promise<void>;
-    handleDelete: (id: PetsType['id']) => Promise<void>;
-    handleUpdate: (petsPayload: Partial<PetsType>) => Promise<void>;
-    handleAdd: (petsPayload: PetsType) => Promise<void>;
-    handleFavourite: (petPayload: Partial<PetsType>) => Promise<void>;
+    handleFile: (ev: SyntheticEvent) => void;
+    handleDelete: (id: Pet['id']) => Promise<void>;
+    handleUpdate: (petsPayload: Partial<Pet>) => Promise<void>;
+    handleAdd: (petsPayload: Pet) => Promise<void>;
+    handleFavourite: (petPayload: Partial<Pet>) => Promise<void>;
 };
 
 export const initialContext: PetContextStructure = {
     pets: [],
     handleLoad: async () => {},
-    handleDelete: async (id: PetsType['id']) => {},
-    handleUpdate: async (petsPayload: Partial<PetsType>) => {},
-    handleAdd: async (petsPayload: Partial<PetsType>) => {},
-    handleFavourite: async (petsPayload: Partial<PetsType>) => {},
+    handleFile: () => {},
+    handleDelete: async (id: Pet['id']) => {},
+    handleUpdate: async (petsPayload: Partial<Pet>) => {},
+    handleAdd: async (petsPayload: Partial<Pet>) => {},
+    handleFavourite: async (petsPayload: Partial<Pet>) => {},
 };
 
 export const PetContext = createContext(initialContext);
