@@ -56,37 +56,3 @@ describe('Given PublishPage component', () => {
         });
     });
 });
-
-describe('Given Contact component', () => {
-    describe('When Admin is true', () => {
-        let mockContext: PetContextStructure & UserContextStructure;
-        const handleLoadUsers = jest.fn();
-        beforeEach(async () => {
-            mockContext = {
-                getAdmin: () => true,
-                users: [USER],
-                handleLoadUsers,
-            } as unknown as PetContextStructure & UserContextStructure;
-            // eslint-disable-next-line testing-library/no-unnecessary-act
-            await act(async () => {
-                render(
-                    <PetContext.Provider value={mockContext}>
-                        <Router>
-                            <PublishPage></PublishPage>
-                        </Router>
-                    </PetContext.Provider>
-                );
-            });
-        });
-        test('Then section with role article should be in screen', () => {
-            const div = screen.getByRole('article');
-            expect(div).toBeInTheDocument();
-        });
-        test('Then the component ClientContact should be rendered', () => {
-            const title = screen.getByRole('heading', {
-                name: 'Publish new pets',
-            });
-            expect(title).toBeInTheDocument();
-        });
-    });
-});

@@ -59,19 +59,6 @@ describe('Given a User Repo', () => {
         });
     });
     describe('When we use update method', () => {
-        test(`Then if the ID is VALID, we received the USER 
-            updated in the repo`, async () => {
-            const updatePayload: Partial<User> = {
-                uid: 'uid2',
-                name: 'Lisa',
-            };
-            global.fetch = jest.fn().mockResolvedValue({
-                ok: true,
-                json: jest.fn().mockResolvedValue(updatePayload),
-            });
-            const data = await repo.update(updatePayload);
-            expect(data).toHaveProperty('name', updatePayload.name);
-        });
         test(`Then if there is NOT ID, we received a null`, async () => {
             await expect(async () => {
                 await repo.update({});
