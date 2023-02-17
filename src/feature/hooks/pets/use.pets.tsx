@@ -23,9 +23,6 @@ export function usePets(): UsePets {
     const initialState: Array<Pet> = [];
     const initialStatus = 'Starting' as Status;
 
-    //const [pets, setPets] = useReducer(petsReducer, initialState);
-    // const [formData, setFormData] = useState('');
-
     const [status, setStatus] = useState(initialStatus);
 
     const [pets, setPets] = useReducer(petsReducer, initialState);
@@ -38,7 +35,6 @@ export function usePets(): UsePets {
             setStatus('Loading');
             const data = await repo.load();
             setPets(ac.petsLoadCreator(data));
-            //setPets(data);
             setStatus('Loaded');
         } catch (error) {
             handleError(error as Error);

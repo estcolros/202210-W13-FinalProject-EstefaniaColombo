@@ -1,6 +1,6 @@
 import { Pet } from '../../models/pet.model';
 import { PetsRepository } from './pets.repo';
-import { PET, PET2, PET3 } from '../../data/petmock';
+import { PET, PET2 } from '../../data/petmock';
 
 describe('Given a Pet Repo', () => {
     const mockData = [PET, PET2];

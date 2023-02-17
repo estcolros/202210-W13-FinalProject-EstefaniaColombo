@@ -14,7 +14,6 @@
     height: 38rem;
     width: 90rem;
     max-width: 430px;
-    border-radius: 15%;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -92,7 +91,6 @@
     height: 45rem;
     width: 90rem;
     max-width: 450px;
-    border-radius: 15%;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
@@ -131,17 +129,9 @@
         height: 30px;
         margin: 0.2rem;
     }
-}
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-.card_add {
-    @include flexbox(flex, center, flex-end);
-    img {
-        width: 60%;
-        opacity: 0.4;
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
-    padding: 2px 16px;
 }
 
 .buttons-item_details_admin {

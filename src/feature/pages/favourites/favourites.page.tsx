@@ -16,13 +16,6 @@ export default function FavouritesPage() {
             {!pets.length ? (
                 <p>Loading ....</p>
             ) : (
-                // {/* <h4>Actualmente no tienes mascotas favoritas</h4>
-                // <img
-                //     src={require('./fav.png')}
-                //     alt="error"
-                //     width="550"
-                //     height="550"
-                // /> */}
                 <ul className="pets-list">
                     {pets
                         .filter((item) => item.isFavourite)

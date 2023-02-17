@@ -2,16 +2,13 @@
 import { Details } from './details';
 
 import { act, render, screen } from '@testing-library/react';
-import { BrowserRouter, Router } from 'react-router-dom';
-import { mockPet1 } from '../../hooks/pets/use.pets.mock';
+import { BrowserRouter } from 'react-router-dom';
 import {
     PetContext,
     PetContextStructure,
 } from '../../../core/context/pets.context';
-import { PET } from '../../data/petmock';
 import { UserContextStructure } from '../../../core/context/user.context';
-import { Pet } from '../../models/pet.model';
-import userEvent from '@testing-library/user-event';
+import { PET } from '../../data/petmock';
 
 describe('Given "Detail" component', () => {
     let mockContext: PetContextStructure & UserContextStructure;

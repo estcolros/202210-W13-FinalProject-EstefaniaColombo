@@ -11,7 +11,6 @@ export function PetContextProvider({ children }: { children: JSX.Element }) {
         handleUpdate,
         handleFavourite,
     } = usePets();
-    //console.log('Loading PetContextProvider with pets: ', getPets);
 
     const context = useMemo(
         () => ({
