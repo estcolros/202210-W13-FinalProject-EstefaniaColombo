@@ -20,7 +20,6 @@ export type useUsersType = {
 type Status = 'Starting' | 'Loading' | 'Loaded';
 
 export function useUsers(): useUsersType {
-    //const repo = useMemo(() => new UsersRepo(), []);
     const initialState: Array<User> = [];
     const initialUser: User | object = {};
     const initialStatus = 'Starting' as Status;

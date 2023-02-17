@@ -28,16 +28,6 @@ describe(`Given usePets (custom hook)
     let spyConsole: jest.SpyInstance;
     let buttons: Array<HTMLElement>;
     beforeEach(async () => {
-        const event = {
-            preventDefault: jest.fn(),
-            target: {
-                files: [
-                    {
-                        name: 'test-file',
-                    },
-                ],
-            },
-        };
         TestComponent = () => {
             const {
                 handleAdd,

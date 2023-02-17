@@ -14,7 +14,8 @@
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    align &:hover {
+
+    &:hover {
         background-color: rgb(255, 213, 0);
         color: black;
     }

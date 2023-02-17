@@ -1,13 +1,11 @@
-import { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import { SyntheticEvent, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PetContext } from '../../context/pets.context';
 import { UserContext } from '../../context/user.context';
 import { login, loginWithGoogle } from '../../firebase/config';
 import './login.scss';
 
 export function Login() {
     const { handleAdmin, handleUser } = useContext(UserContext);
-    const { handleLoad } = useContext(PetContext);
     const navigate = useNavigate();
 
     const initialFormData = {

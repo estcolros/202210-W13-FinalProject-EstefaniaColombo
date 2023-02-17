@@ -1,4 +1,4 @@
-import { USER, USER2, USER3 } from '../../data/usermock';
+import { USER, USER2 } from '../../data/usermock';
 import { User } from '../../models/users.model';
 import { UsersRepo } from './user.repo';
 describe('Given a User Repo', () => {

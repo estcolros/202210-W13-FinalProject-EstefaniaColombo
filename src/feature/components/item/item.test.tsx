@@ -1,13 +1,6 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import {
-    PetContext,
-    PetContextStructure,
-} from '../../../core/context/pets.context';
-import { UserContextStructure } from '../../../core/context/user.context';
-import { PET } from '../../data/petmock';
 import { Pet } from '../../models/pet.model';
 import { Item } from './item';
 

@@ -3,7 +3,7 @@ import { UserContext } from '../../../core/context/user.context';
 import { Add } from '../../components/add/add';
 
 export default function PublishPage() {
-    const { currentUser, users, getAdmin } = useContext(UserContext);
+    const { getAdmin } = useContext(UserContext);
 
     return (
         <>
