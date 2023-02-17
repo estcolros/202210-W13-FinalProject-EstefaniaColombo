@@ -14,13 +14,13 @@ export default function HomePage() {
         <>
             <h2>Every Pet Deserves a Loving Home. Adopt a Pet Today</h2>
 
-            <p>
+            <p className="homepage">
                 Browse our available animals and learn more about the adoption
                 process. Together, we can rescue, rehabilitate, and rehome pets
                 in need.
             </p>
 
-            <p>
+            <p className="homepage">
                 Thank you for supporting our mission to bring joy to families
                 through pet adoption.
             </p>
